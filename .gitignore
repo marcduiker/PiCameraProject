@@ -1,3 +1,7 @@
+# PiCameraProject
+# Ignore configuration files
+*config.py
+
 # VS Code
 .vscode/*
 !.vscode/settings.json
