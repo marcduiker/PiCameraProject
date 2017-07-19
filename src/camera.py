@@ -20,7 +20,7 @@ def captureimage(settings):
         time.sleep(sleeptime)
         filename = '{}.jpg'.format(time.strftime("%Y%m%d-%H%M%S"))
         filepath = os.path.join(picturePath, filename)
-        camera.capture(filepath)
+        camera.capture(filepath, format='jpeg', quality=80,thumbnail=None)
 
 
 camsettings = CameraSettings()
