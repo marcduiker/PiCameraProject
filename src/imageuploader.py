@@ -5,7 +5,7 @@ from azure.storage.blob import ContentSettings
 
 def upload_callback(current, total):
     if current == total:
-        print("Upload finished")
+        print("Upload finished.")
 
 class ImageUploader(object):
 
@@ -21,7 +21,7 @@ class ImageUploader(object):
         else:
             blob_name = image_name
         
-        print('Starting image upload for {}', image_path)
+        print('Starting image upload to Azure for {}'.format(image_path))
         
         block_blob_service.create_blob_from_path(
             container_name=storageconfig['container'],

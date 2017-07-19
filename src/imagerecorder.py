@@ -23,8 +23,8 @@ class ImageRecorder(object):
             time.sleep(sleeptime)
             filename = '{}.jpg'.format(time.strftime("%Y%m%d-%H%M%S"))
             filepath = os.path.join(self.__image_base_path, filename)
-            
-            print('Starting capture for {}', filename)
+
+            print('Starting capture for {}'.format(filename))
             camera.capture(filepath, format='jpeg', quality=80, thumbnail=None)
 
             return filepath
