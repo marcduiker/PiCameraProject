@@ -10,7 +10,8 @@ def captureimage(settings):
     sleeptime = 8
 
     with picamera.PiCamera() as camera:
-        camera.resolution = (1280, 720)
+        camera.resolution = (1640, 1232)
+        camera.quality = 80
         if settings.isautomatic == False:
             camera.awb_mode = settings.whitebalance
             camera.iso = settings.iso
