@@ -1,5 +1,3 @@
-import fractions
-
 class CameraSettings:
     """ CameraSettings class to control the Pi Camera"""
     def __init__(self):
@@ -8,7 +6,7 @@ class CameraSettings:
         self._iso = 400
         self._whitebalance = 'auto'
         self._shutterspeed = 0.01
-        self._framerate = fractions.Fraction(1, 30)
+        self._framerate = 30
 
     @property
     def exposuremode(self):
@@ -40,7 +38,7 @@ class CameraSettings:
     
     @framerate.setter
     def framerate(self, value):
-        self._framerate = fractions.Fraction(1, value)
+        self._framerate = value
 
     @property
     def whitebalance(self):
