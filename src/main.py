@@ -24,7 +24,7 @@ while current_frame < total_frames:
         camera_settings.shutterspeed = 4 # seconds
 
     image_path = ImageRecorder(camera_settings, image_base_path).capture_image()
-    ImageUploader().store_image(image_path)
+    ImageUploader().store_image(image_path, time.strftime("%Y%m%d"))
     ImageCleaner().delete_local_image(image_path)
     
     time.sleep(sleep_time)
