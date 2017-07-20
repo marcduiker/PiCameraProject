@@ -5,17 +5,18 @@ from camerasettings import CameraSettings
 from imageuploader import ImageUploader
 from imagecleaner import ImageCleaner
 
-image_base_path = '/home/msd/Pictures/PiCam/'
-total_frames = 5
-current_frame = 0
-sleep_time = 5
-start_morning_hour = 6
-start_evening_hour = 22
+IMAGE_BASE_PATH = '/home/msd/Pictures/PiCam/'
+SLEEP_TIME = 5
+START_MORNING_HOUR = 6
+START_EVENING_HOUR = 22
+END_DATE = datetime.datetime(2017, 7, 28, 12, 0, 0)
 
-while current_frame < total_frames:
+current_frame = 0
+
+while datetime.datetime.now().date < END_DATE:
     camera_settings = CameraSettings()
     current_hour = datetime.datetime.now().hour 
-    if current_hour >= start_evening_hour or current_hour <= start_morning_hour:
+    if current_hour >= START_EVENING_HOUR or current_hour <= START_MORNING_HOUR:
         # longer exposure and higher ISO for the night
         camera_settings.isautomatic = False
         camera_settings.exposuremode = 'off'
@@ -23,9 +24,11 @@ while current_frame < total_frames:
         camera_settings.iso = 800
         camera_settings.shutterspeed = 4 # seconds
 
-    image_path = ImageRecorder(camera_settings, image_base_path).capture_image()
+    image_path = ImageRecorder(camera_settings, IMAGE_BASE_PATH).capture_image()
     ImageUploader().store_image(image_path, time.strftime("%Y%m%d"))
     ImageCleaner().delete_local_image(image_path)
     
-    time.sleep(sleep_time)
+    time.sleep(SLEEP_TIME)
     current_frame += 1
+
+print("{} images captured.".format(current_frame))
