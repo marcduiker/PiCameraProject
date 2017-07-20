@@ -26,6 +26,6 @@ class ImageRecorder(object):
             filepath = os.path.join(self.__image_base_path, filename)
 
             print('Starting capture for {}'.format(filename))
-            camera.capture(filepath, format='jpeg', resize=(800, 600))
+            camera.capture(filepath, format='jpeg', resize=(800, 600), quality=10, thumbnail=None)
 
             return filepath
