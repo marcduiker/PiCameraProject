@@ -23,6 +23,8 @@ while datetime.datetime.now() < END_DATE:
         camera_settings.framerate = 6
         camera_settings.iso = 800
         camera_settings.shutterspeed = 4 # seconds
+    else:
+        camera_settings.isautomatic = True
 
     image_path = ImageRecorder(camera_settings, IMAGE_BASE_PATH).capture_image()
     ImageUploader().store_image(image_path, time.strftime("%Y%m%d"))
