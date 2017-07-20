@@ -27,6 +27,6 @@ class ImageRecorder(object):
 
             print('Starting capture for {}'.format(filename))
             # Pi quality 10 is equal to regular jpeg quality 75. 
-            camera.capture(filepath, format='jpeg', resize=(800, 600), quality=11, thumbnail=None)
+            camera.capture(filepath, format='jpeg', quality=11, thumbnail=None)
 
             return filepath
