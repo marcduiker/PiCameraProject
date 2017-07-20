@@ -13,7 +13,7 @@ END_DATE = datetime.datetime(2017, 7, 28, 12, 0, 0)
 
 current_frame = 0
 
-while datetime.datetime.now().date < END_DATE:
+while datetime.datetime.now() < END_DATE:
     camera_settings = CameraSettings()
     current_hour = datetime.datetime.now().hour 
     if current_hour >= START_EVENING_HOUR or current_hour <= START_MORNING_HOUR:
