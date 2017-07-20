@@ -7,8 +7,8 @@ from imagecleaner import ImageCleaner
 
 IMAGE_BASE_PATH = '/home/msd/Pictures/PiCam/'
 SLEEP_TIME = 5
-START_MORNING_HOUR = 6
-START_EVENING_HOUR = 22
+START_MORNING_HOUR = 5
+START_EVENING_HOUR = 23
 END_DATE = datetime.datetime(2017, 7, 28, 12, 0, 0)
 
 current_frame = 0
