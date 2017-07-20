@@ -7,14 +7,15 @@ from imagecleaner import ImageCleaner
 
 image_base_path = '/home/msd/Pictures/PiCam/'
 total_frames = 5
-current_frame = 1
+current_frame = 0
 sleep_time = 5
+start_morning_hour = 6
+start_evening_hour = 22
+
 while current_frame < total_frames:
     camera_settings = CameraSettings()
-    start_morning_hour = 6
-    start_evening_hour = 22
     current_hour = datetime.datetime.now().hour 
-    if current_hour >= start_evening_hour or current_hour <= start_evening_hour:
+    if current_hour >= start_evening_hour or current_hour <= start_morning_hour:
         # longer exposure and higher ISO for the night
         camera_settings.isautomatic = False
         camera_settings.exposuremode = 'off'
